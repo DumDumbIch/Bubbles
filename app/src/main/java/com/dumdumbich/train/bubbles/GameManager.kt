@@ -3,7 +3,7 @@ package com.dumdumbich.train.bubbles
 import android.graphics.Canvas
 import android.graphics.Paint
 
-class GameManager {
+class GameManager(val canvasView: CanvasView, val widthScreen: Int, val heightScreen: Int) {
 
     private lateinit var myCircle: MyCircle
     private lateinit var paint: Paint
@@ -24,7 +24,7 @@ class GameManager {
     }
 
     private fun initMyCircle() {
-        myCircle = MyCircle(200, 500)
+        myCircle = MyCircle(widthScreen / 2, heightScreen / 2)
     }
 
 }
