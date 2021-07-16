@@ -1,4 +1,4 @@
-package com.dumdumbich.train.bubbles
+package com.dumdumbich.train.bubbles.domain.entity
 
 class MyCircle(_x: Int, _y: Int, _r: Int = 50) {
 
