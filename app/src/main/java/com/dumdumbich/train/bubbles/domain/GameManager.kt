@@ -52,10 +52,8 @@ class GameManager(
     }
 
     private fun updateMoveDirection(enemy: EnemyCircle) {
-        if (enemy.x >= widthScreen) enemy.directX = -1
-        else if (enemy.x <= 0) enemy.directX = 1
-        if (enemy.y >= widthScreen) enemy.directY = -1
-        else if (enemy.x <= 0) enemy.directY = 1
+        if (enemy.x >= widthScreen || enemy.x <= 0) enemy.directX = -enemy.directX
+        if (enemy.y >= widthScreen || enemy.y <= 0) enemy.directY = -enemy.directY
     }
 
     private fun initMyCircle() {
