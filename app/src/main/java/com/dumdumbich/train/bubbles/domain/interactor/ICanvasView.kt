@@ -1,7 +1,7 @@
 package com.dumdumbich.train.bubbles.domain.interactor
 
-import com.dumdumbich.train.bubbles.domain.entity.MyCircle
+import com.dumdumbich.train.bubbles.domain.entity.Circle
 
 interface ICanvasView {
-    fun drawCircle(circle: MyCircle)
+    fun drawCircle(circle: Circle)
 }

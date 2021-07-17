@@ -10,8 +10,8 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
 import com.dumdumbich.train.bubbles.domain.GameManager
+import com.dumdumbich.train.bubbles.domain.entity.Circle
 import com.dumdumbich.train.bubbles.domain.interactor.ICanvasView
-import com.dumdumbich.train.bubbles.domain.entity.MyCircle
 
 
 class CanvasView(context: Context, attrs: AttributeSet) : View(context, attrs), ICanvasView {
@@ -50,7 +50,7 @@ class CanvasView(context: Context, attrs: AttributeSet) : View(context, attrs), 
         heightScreen = point.y
     }
 
-    override fun drawCircle(circle: MyCircle) {
+    override fun drawCircle(circle: Circle) {
         canvas?.drawCircle(circle.x.toFloat(), circle.y.toFloat(), circle.r.toFloat(), paint)
     }
 

@@ -3,13 +3,14 @@ package com.dumdumbich.train.bubbles.domain
 import com.dumdumbich.train.bubbles.domain.entity.MyCircle
 import com.dumdumbich.train.bubbles.ui.CanvasView
 
+
 class GameManager(
     private val canvasView: CanvasView,
     private val widthScreen: Int,
     private val heightScreen: Int
 ) {
 
-    private val rateConst = 30.0
+    private val rateConst = 60.0
     private lateinit var myCircle: MyCircle
     private var moveRateX: Double = 0.0
     private var moveRateY: Double = 0.0
