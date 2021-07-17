@@ -12,6 +12,9 @@ class EnemyCircle(_x: Int, _y: Int, _r: Int = 50) : Circle(_x, _y, _r) {
         const val RANDOM_MOVE_SPEED = 5
     }
 
+    var directX = 1
+    var directY = 1
+
     init {
         val random = Random()
         r = (random.nextInt(MAX_RADIUS) + MIN_RADIUS)
@@ -32,8 +35,8 @@ class EnemyCircle(_x: Int, _y: Int, _r: Int = 50) : Circle(_x, _y, _r) {
     fun randomMove() {
         val random = Random()
         val speed = random.nextInt(RANDOM_MOVE_SPEED) + 1
-        x += random.nextInt(speed) + 1
-        y += random.nextInt(speed) + 1
+        x += (random.nextInt(speed) + 1) * directX
+        y += (random.nextInt(speed) + 1) * directY
     }
 
 }
