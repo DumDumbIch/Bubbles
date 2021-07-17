@@ -13,4 +13,6 @@ open class Circle(_x: Int, _y: Int, _r: Int = 0, _c: Int = 0) {
     var r: Int = _r
     var colour: Int = _c
 
+    fun isSmallerThanHim(circle: Circle) = this.r < circle.r
+
 }
