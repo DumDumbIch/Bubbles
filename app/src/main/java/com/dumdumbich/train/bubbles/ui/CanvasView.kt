@@ -51,6 +51,7 @@ class CanvasView(context: Context, attrs: AttributeSet) : View(context, attrs), 
     }
 
     override fun drawCircle(circle: Circle) {
+        paint.color = circle.colour
         canvas?.drawCircle(circle.x.toFloat(), circle.y.toFloat(), circle.r.toFloat(), paint)
     }
 
