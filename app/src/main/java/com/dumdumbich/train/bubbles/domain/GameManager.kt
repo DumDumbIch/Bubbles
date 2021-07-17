@@ -48,7 +48,14 @@ class GameManager(
             enemy.isFoodForHim(me)
             updateMoveDirection(enemy)
             enemy.randomMove()
+            if (enemy.isIntersectedWithHim(me)) gameOver()
         }
+    }
+
+    private fun gameOver() {
+        me.setDefaultRadius()
+        initEnemyCircles()
+        canvasView.redraw()
     }
 
     private fun updateMoveDirection(enemy: EnemyCircle) {

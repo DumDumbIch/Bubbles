@@ -3,7 +3,11 @@ package com.dumdumbich.train.bubbles.domain.entity
 import android.graphics.Color
 
 
-class MyCircle(_x: Int, _y: Int, _r: Int = 50) : Circle(_x, _y, _r) {
+class MyCircle(_x: Int, _y: Int, _r: Int = INIT_RADIUS) : Circle(_x, _y, _r) {
+
+    companion object {
+        const val INIT_RADIUS = 50
+    }
 
     init {
         colour = Color.BLUE
@@ -14,6 +18,10 @@ class MyCircle(_x: Int, _y: Int, _r: Int = 50) : Circle(_x, _y, _r) {
         val dY: Int = ((nextY - y) * rateY).toInt()
         x += dX
         y += dY
+    }
+
+    fun setDefaultRadius() {
+        r = INIT_RADIUS
     }
 
 }

@@ -55,6 +55,10 @@ class CanvasView(context: Context, attrs: AttributeSet) : View(context, attrs), 
         canvas?.drawCircle(circle.x.toFloat(), circle.y.toFloat(), circle.r.toFloat(), paint)
     }
 
+    override fun redraw() {
+        invalidate()
+    }
+
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         if (event != null) {
             val x: Int = event.x.toInt()
@@ -65,7 +69,7 @@ class CanvasView(context: Context, attrs: AttributeSet) : View(context, attrs), 
                 }
             }
         }
-        invalidate()
+        redraw()
         return true
     }
 
