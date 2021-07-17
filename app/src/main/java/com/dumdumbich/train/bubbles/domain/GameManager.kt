@@ -34,8 +34,10 @@ class GameManager(
         val randomX = Random()
         val randomY = Random()
         for (i in 1..ENEMY_NUMBER) {
-            val enemy =
-                EnemyCircle(randomX.nextInt(widthScreen), randomY.nextInt(heightScreen))
+            var enemy: EnemyCircle
+            do {
+                enemy = EnemyCircle(randomX.nextInt(widthScreen), randomY.nextInt(heightScreen))
+            } while (enemy.isIntersectedWithHim(me.getSafeArea()))
             enemy.isFoodForHim(me)
             enemies.add(enemy)
         }
