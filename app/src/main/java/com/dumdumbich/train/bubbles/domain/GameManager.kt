@@ -43,9 +43,10 @@ class GameManager(
         }
     }
 
-    fun updateFoodAndEnemies() {
+    private fun updateEnemies() {
         for (enemy in enemies) {
             enemy.isFoodForHim(me)
+            enemy.randomMove()
         }
     }
 
@@ -67,6 +68,7 @@ class GameManager(
 
     fun onTouchEvent(x: Int, y: Int) {
         me.moveMyCircleWhenTouchAt(x, y, moveRateX, moveRateY)
+        updateEnemies()
     }
 
 }
