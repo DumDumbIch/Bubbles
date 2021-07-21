@@ -1,6 +1,9 @@
 package com.dumdumbich.train.bubbles.domain.entity
 
 import android.graphics.Color
+import kotlin.math.pow
+import kotlin.math.roundToInt
+import kotlin.math.sqrt
 
 
 class MyCircle(_x: Int, _y: Int, _r: Int = INIT_RADIUS) : Circle(_x, _y, _r) {
@@ -22,6 +25,10 @@ class MyCircle(_x: Int, _y: Int, _r: Int = INIT_RADIUS) : Circle(_x, _y, _r) {
 
     fun setDefaultRadius() {
         r = INIT_RADIUS
+    }
+
+    fun eat(circle: Circle) {
+        r = sqrt(r.toDouble().pow(2) + circle.r.toDouble().pow(2)).roundToInt()
     }
 
 }

@@ -9,7 +9,10 @@ interface IDebug {
 
     companion object {
         const val DEBUG_TAG = "DUMDUMBICH_BUBBLES"
-        const val DEBUG_EnemyCircle: Boolean = true
+        const val DEBUG_EnemyCircle: Boolean = false
+        const val DEBUG_MyCircle: Boolean = false
+        const val DEBUG_GameManager: Boolean = true
+        const val DEBUG_CanvasView: Boolean = true
     }
 
     fun logMessage(flag: Boolean, message: String) {

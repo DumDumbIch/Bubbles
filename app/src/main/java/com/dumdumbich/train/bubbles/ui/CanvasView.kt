@@ -12,9 +12,12 @@ import android.view.WindowManager
 import com.dumdumbich.train.bubbles.domain.GameManager
 import com.dumdumbich.train.bubbles.domain.entity.Circle
 import com.dumdumbich.train.bubbles.domain.interactor.ICanvasView
+import com.dumdumbich.train.bubbles.util.debug.IDebug
+import com.dumdumbich.train.bubbles.util.debug.IDebug.Companion.DEBUG_CanvasView
 
 
-class CanvasView(context: Context, attrs: AttributeSet) : View(context, attrs), ICanvasView {
+class CanvasView(context: Context, attrs: AttributeSet) : View(context, attrs), ICanvasView,
+    IDebug {
 
     private var widthScreen = 0
     private var heightScreen = 0
@@ -48,6 +51,10 @@ class CanvasView(context: Context, attrs: AttributeSet) : View(context, attrs), 
         display.getSize(point)
         widthScreen = point.x
         heightScreen = point.y
+        logMessage(
+            DEBUG_CanvasView,
+            "CanvasView.initScreenSize(): widthScreen = $widthScreen, heightScreen = $heightScreen"
+        )
     }
 
     override fun drawCircle(circle: Circle) {
