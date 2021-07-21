@@ -60,7 +60,8 @@ class GameManager(
         }
     }
 
-    private fun gameOver() {
+    private fun gameOver(message: String) {
+        canvasView.showGameOverMessage(message)
         me.setDefaultRadius()
         enemies.clear()
         initEnemyCircles()
@@ -104,7 +105,7 @@ class GameManager(
                         DEBUG_GameManager,
                         "GameManager.checkCollision(): enemies.size = ${enemies.size}"
                     )
-                    if (enemies.isEmpty()) gameOver()
+                    if (enemies.isEmpty()) gameOver("Congrulations! You win!")
                     logMessage(
                         DEBUG_GameManager,
                         "GameManager.checkCollision(): enemies on the game board:"
@@ -115,7 +116,7 @@ class GameManager(
                             "GameManager.checkCollision(): enemy.radius = ${survivorEnemy.r},  enemy.x = ${survivorEnemy.x},  enemy.y = ${survivorEnemy.y}"
                         )
                     }
-                } else gameOver()
+                } else gameOver("Game is over - you loser!")
                 break
             }
         }

@@ -9,6 +9,7 @@ import android.view.Display
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import com.dumdumbich.train.bubbles.domain.GameManager
 import com.dumdumbich.train.bubbles.domain.entity.Circle
 import com.dumdumbich.train.bubbles.domain.interactor.ICanvasView
@@ -24,6 +25,7 @@ class CanvasView(context: Context, attrs: AttributeSet) : View(context, attrs), 
     private lateinit var paint: Paint
     private var gameManager: GameManager
     private var canvas: Canvas? = null
+    private var toast: Toast? = null
 
     init {
         initPaint()
@@ -64,6 +66,12 @@ class CanvasView(context: Context, attrs: AttributeSet) : View(context, attrs), 
 
     override fun redraw() {
         invalidate()
+    }
+
+    override fun showGameOverMessage(message: String) {
+        toast?.cancel()
+        toast = Toast.makeText(context, message, Toast.LENGTH_SHORT)
+        toast?.show()
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
